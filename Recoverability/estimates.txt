@@ -1,0 +1,25 @@
+1. Minimum RTO for a single AZ outage
+RTO in this case is the time to complete switch to a different AZ, about 60-120 seconds
+Ref: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html
+
+2. Minimum RTO for a single region outage:
+RTO involves initiating a new Amazon RDS instance and then incorporating all modifications made since the last backup, which typically takes between 30 minutes to 1hr. 
+This operation necessitates manual intervention and consists of the following steps:
+a. Utilize an existing replica and elevate it to the primary/master instance.
+b. Adjust the application configuration to direct it to the newly created database instance.
+
+3. Minimum RPO for a single AZ outage
+RPO ~ 0 as secondary instance is also storing and keep synchronizing data
+
+4. Minimum RPO for a single region outage
+In this scenario, the risk of data loss is associated with the rate at which data is transferred from the primary database to its replicas in different regions. 
+This rate is influenced by the frequency of backups and the time it takes to restore them. RDS uploads transaction logs for DB instances to Amazon S3 every five minutes.
+And restoring from backup also takes time, can vary from 10 minutes to hours, depending on the number of logs that need to be applied. It can only be determined by testing
+because it depends on the size of the database, the number of changes made since the last
+backup, and the workload levels on the database."
+Ref: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html
+     https://aws.amazon.com/blogs/database/amazon-rds-under-the-hood-single-az-instance-recovery/
+
+Besides, it can have application configuration change time to point to a new instance and this depends on
+application architecture. 
+Summary: it takes 10 - 30 mins restore + 10 mins to reconfigure

@@ -1,0 +1,20 @@
+[root@ip-10-1-10-129 ~]# mysql -h mysql-primary.cemi5uafivx8.us-east-1.rds.amazonaws.com  -u admin -p udacity
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 31
+Server version: 8.0.33 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [udacity]> SELECT * FROM example_table;
++----+----------+
+| id | name     |
++----+----------+
+|  1 | John Doe |
++----+----------+
+1 row in set (0.002 sec)
