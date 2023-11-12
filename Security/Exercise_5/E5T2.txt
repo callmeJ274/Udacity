@@ -1,0 +1,14 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+Tool: Terraform Validator: https://github.com/GoogleCloudPlatform/terraform-validator
+### Example vulnerability
+Missing encryption for sensitive data in the IaC templates. For instance, the use of plaintext passwords or API keys directly in the templates.
+##Scan AMI’s or containers for OS vulnerabilities
+Tool: Clair for Container Scanning: https://github.com/quay/clair
+### Example vulnerability
+Outdated or unpatched software versions in the container image, such as a known vulnerability in a specific version of an application.
+##Scan an AWS environment for cloud configuration vulnerabilities
+Tool: AWS Config Rules with AWS Config and AWS Config Rules
+### Example vulnerability
+Publicly accessible S3 buckets without proper access controls. AWS Config Rules can be configured to check for S3 buckets that allow public access.
