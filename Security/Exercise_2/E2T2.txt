@@ -1,11 +1,11 @@
-Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+# Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
 Security groups should not allow ingress from 0.0.0.0/0 to port 22
 Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389
 VPC flow logging should be enabled in all VPCs
 IAM policies should not allow full "*" administrative privileges
 
-Bonus - provide recommendations on how to remediate the vulnerabilities.
+# Bonus - provide recommendations on how to remediate the vulnerabilities.
 Specify IP address range for security groups ingress on port 22
 Remove free access to port 3389
 Enable VPC flow logging for all VPCs
